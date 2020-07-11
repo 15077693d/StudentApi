@@ -4,11 +4,7 @@ from api.student import StudentApi
 from flask_mongoengine import MongoEngine
 db = MongoEngine()
 app = Flask(__name__)
-app.config.update(
-    {'MONGODB_SETTINGS': {
-        'db': 'test',
-        'host': 'localhost',
-        'port': 27017}})
+app.config["MONGODB_HOST"] = "mongodb+srv://test:test@cluster0.yjmzp.gcp.mongodb.net/student?retryWrites=true&w=majority"
 api = Api(app)
 api.add_resource(StudentApi, "/student")
 if __name__ == '__main__':
